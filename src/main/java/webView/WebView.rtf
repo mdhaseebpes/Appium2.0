@@ -1,0 +1,148 @@
+
+Automating Hybrid apps and Mobile Browser: Basics
+————————————————————————
+Native view: 
+- Developed using native SDKs i.e. Java for Android and Swift for iOS. Native to the OS. Platform specific.
+
+WebView: 
+- Developed using HTML, CSS and JavaScript.
+- WebView container that uses browser functionality i.e. Chrome for Android and Safari for iOS 
+
+Mobile Browser:
+- Safari for iOS, Chrome for Android
+- Developed using HTML, CSS and JavaScript
+
+Inspecting Hybrid App/Mobile Browser elements:
+- Appium inspector may be able to inspect the WebView elements, but natively.
+In that case, need to define different selectors for Android and iOS
+- WebView elements can be inspected using Chrome remote debugger or Safari Web Inspector
+- WebView elements are common for both Android and iOS
+- For Android, in order to inspect WebView elements,
+developer need to set setWebContentsDebuggingEnabled to true within the app
+- For Android, the default ChromeDriver version in Appium should be compatible
+with the Chrome browser version on the device
+- For iOS, Appium can automate WkWebView and UIWebView elements, but not SafariViewController elements.
+
+
+HybridApp: Inspecting WebView elements natively using Appium Inspector
+—————————————————————————————————
+- We may be able to inspect WebView elements using Appium Inspector, but natively
+- How to check if a page or a portion of the page is a WebView or a native view
+- Will show you one case where in we are not able to inspect the WebView elements
+
+HybridApp: Inspecting WebView elements in Web mode using Appium Inspector
+—————————————————————————————————
+- We may be able to inspect WebView elements using Appium Inspector in Web mode
+- How to check if a page or a portion of the page is a WebView or a native view
+- May be unreliable
+
+iOS: Hybrid app and Safari browser: Inspecting WebView elements using the Web Inspector (Simulator)
+——————————————————————————————————————————————
+1. Launch Hybrid app and navigate to the WebView page OR Launch Safari browser and navigate to the webpage
+2. Open desktop Safari
+3. Enable “Develop” menu option if not already enabled. Got to Safari -> Preferences… ->
+ Advanced menu and enable “Show Develop menu in menu bar” option
+4. Go to Develop Menu -> Select Simulator and then the WebView page/Browser page ->
+It opens up the Web Inspector
+5. Copy the CSS or XPath or any other locator as you would do in Selenium
+
+
+iOS: Hybrid app: Driver Context Switching and Automating WebView elements (Simulator - Example)
+————————————————————————————————————————————
+1. Get Context Handles
+2. Switch driver to WebView context
+3. Find WebView Elements
+
+iOS: Inspecting and Automating WebView elements (Real Device - UBER app)
+————————————————————————————————————
+
+Steps to inspect WebView elements:
+————————————————
+1. Launch Hybrid app and navigate to the WebView page OR Launch Safari browser and navigate to the webpage
+2. Open desktop Safari
+3. Enable “Develop” menu option if not already enabled. Got to Safari -> Preferences… ->
+ Advanced menu and enable “Show Develop menu in menu bar” option
+4. Go to Develop Menu -> Select the Real Device and then the WebView page/Browser page ->
+ It opens up the Web Inspector
+5. If WebView/Browser page is not displayed under Develop menu,
+ then on your mobile, open Settings app -> Safari -> Advanced -> Enable Web Inspector
+5. Copy the CSS or XPath or any other locator as you would do in Selenium
+
+Steps to automate WebView elements:
+————————————————-
+1. Get Context Handles
+2. Switch driver to WebView context
+3. Find WebView Elements
+
+iOS: Safari browser: Creating new driver session (tesla.com)
+————————————————————————————
+Pre-requisite: Enable Web Inspector
+
+iOS: Safari browser: Automating UI Elements (tesla.com)
+—————————————————————————
+-> Inspect through mobile browser
+-> Inspect through desktop browser
+
+Android: Inspecting WebView elements using the Chrome Remote Debugger (Emulator and Real Device)
+————————————————————————————————————————————————
+1. Launch Hybrid app and navigate to the WebView page OR Launch Chrome browser and navigate to the webpage
+2. Open desktop Chrome
+3. chrome://inspect#devices
+4. Inspect
+5. Copy the CSS or XPath or any other locator as you would do in Selenium
+
+Notes for real device:
+- Make sure USB debugging is enabled
+- Make sure device shows up as authorised for “adb devices” command
+- Turn OFF Play Protect setting
+
+Android: Hybrid app: Automating WebView elements
+—————————————————————————
+1. Get Context Handles
+2. Switch driver to WebView context
+3. Find WebView Elements
+
+Android: Using compatible ChromeDriver (to match Chrome browser version)
+—————————————————————————————————————
+	•	ChromeDriver needs to be installed (a default version comes with Appium)
+	and configured for automating the specific version of Chrome available on the device.
+	•	Use chromedriverExecutable capability to provide path to the ChromeDriver version.
+
+Android: Chrome browser: Create new driver session
+——————————————————————————
+Pre-requisites:
+	•	Make sure Chrome is installed on your device or emulator.
+	•	ChromeDriver needs to be installed (a default version comes with Appium) and
+	configured for automating the specific version of Chrome available on the device.
+	•	Use chromedriverExecutable (and not chromedriverExecutableDir) capability to provide path to the ChromeDriver version.
+
+Note:
+On Mac, we will need to trust the developer for ChromeDriver, else it will not work
+
+Android: Chrome browser: Automating UI elements (tesla.com)
+——————————————————————————————————
+Use browserName capability with value Chrome or Chromium
+
+Note:
+Id, classname locators may not work for Chrome because it uses W3C standards by default.
+You may get “Invalid Locator” error.
+This issue doesn’t happen with Selenium for desktop chrome browser because Selenium internally converts the locators to css.
+Appium doesn’t convert locators internally due to limitations.
+More here: https://github.com/appium/appium/issues/13306 [If you find the defect is fixed, it means Id and classname should also work]
+
+Workarounds [May not be required if above defect gets fixed]:
+Force chrome to use JSONWP instead of W3C
+Convert locators to CSS, XPath
+
+Android: Automatic discovery of compatible ChromeDriver 
+———————————————————————————
+No need to manage ChromeDriver versions!
+Appium can automatically download the compatible ChromeDriver and use it for automating the browser. 
+
+appium --allow-insecure chromedriver_autodownload
+
+chromedriverExecutableDir
+
+Note:
+If you are behind proxy or if there is a firewall, you will have to work with your security team, else download might not work.
+Documentation: http://appium.io/docs/en/writing-running-appium/web/chromedriver/

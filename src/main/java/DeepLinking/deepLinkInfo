@@ -1,0 +1,38 @@
+https://github.com/saucelabs/sample-app-mobile#deep-linking
+
+Deep linking
+This app supports deep linking for iOS and for Android, this means that screens can directly be opened with a deep link.
+
+The prefix deep link is swaglabs:// and the following screens (with their arguments) can be used:
+
+Swag overview screen: swag-overview/ids where ids is a string of numbers from 0-5 separated with a ,. For example swag-overview/0,2. The number represents a product.
+Swag details screen: swag-item/id where id is a number from 0-5. For example swag-item/0
+Cart screen: cart/ids where ids is a string of numbers from 0-5 separated with a ,. For example cart/0,2. The number represents a product.
+Personal info screen: personal-info/ids where ids is a string of numbers from 0-5 separated with a ,. For example cart/0,2. The number represents a product.
+Checkout overview screen: checkout-overview/ids where ids is a string of numbers from 0-5 separated with a ,. For example cart/0,2. The number represents a product.
+Complete screen: complete
+Webview screen: webview
+NOTE
+The Swag overview | Details | Cart | Personal info | Checkout overview-screens all need id(s). The id(s) are the numbers of the products of the InventoryData.ITEMS in this file. The files are in an array and an array starts counting from 0. This means that if you need the first product, you need to provide the id 0 and if you need to the last product you need to provide the id 5.
+
+For how to run the deep link automation script see Deep Linking.
+
+Use with Android
+Open a terminal and add the following
+
+# This will open the Checkout overview screen with 2 products in it
+adb shell am start -W -a android.intent.action.VIEW -d "swaglabs://checkout-overview/1,2"
+Use with iOS
+There are 2 ways of using deep links with iOS, through a terminal or through Safari
+
+Terminal
+Open a terminal and add the following
+
+# This will open the Swag overview screen with 2 products in it
+xcrun simctl openurl booted swaglabs://swag-overview/0,1
+With Safari
+Open Safari and type the following
+
+swaglabs://swag-overview/0,1
+It will prompt a dialog asking you to open the app, select Yes and it will open the screen you selected.
+
