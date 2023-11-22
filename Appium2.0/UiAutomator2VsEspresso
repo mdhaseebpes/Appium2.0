@@ -1,0 +1,13 @@
+Feature	           UIAutomator2	              Espresso
+Framework Type	-  UI Testing Framework	UI  - Testing Framework
+Target Application	Native and Hybrid Android apps	Native Android apps
+Scope	System-level and cross-app testing	App-level testing
+Test Language	Java, Kotlin, Python, and more	Java, Kotlin
+Test Execution	Runs outside the app	Runs inside the app
+Interaction Level	Low-level and high-level interactions	High-level interactions
+Supported Views	All types of Android Views	Only Views within the app under test
+Multi-App Testing	Yes	No
+Device Compatibility	Compatible with Android 4.4+	Compatible with Android 4.4+
+Sync Mechanism	Built-in synchronization	Custom synchronization implementation
+Testing Capabilities	Wide device interactions, multi-app testing, cross-app testing, UI automation	App-level UI interactions, animations, assertions, UI automation
+Setup Complexity	Moderate	Relatively simple
