@@ -1,0 +1,117 @@
+Important setup notes
+================= 
+-> Be an admin on your Windows/Mac
+-> Use latest Windows/MacOS operating system
+-> Office machine? make sure anti-virus and company policies are not blocking installation of Appium and associated softwares
+-> If practicing using an Android emulator, use a powerful processor and sufficient RAM
+-> Avoid using phone from Chinese manufacturers that may restrict Appium due to their security limitations
+
+
+Install homebrew [package manager for macOS and is used to install software packages]
+======================================================================================
+Link: https://brew.sh/
+Command: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+- Run these two commands in your terminal to add Homebrew to your PATH:
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mohammedhaseeb/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+- Run brew help to get started
+
+Install node and npm [Appium dependencies]
+===============================================
+Commands to check if node and npm are installed:
+node -v
+npm -v
+Command to install node: brew install node [This will install npm as well]
+Command to check node installation path: where node or which node
+
+Check Node :
+----------
+mohammedhaseeb@Mohammeds-MacBook-Pro ~ % where node
+/opt/homebrew/bin/node
+
+Check npm:
+--------
+mohammedhaseeb@Mohammeds-MacBook-Pro ~ % where npm
+/opt/homebrew/bin/npm
+
+
+Install Appium CLI server
+=========================
+-> Command to install Appium using npm: npm install -g appium@next
+Note: @next will not be required once Appium 2.0 stable release is out to market.
+-> Command to install specific version: npm install -g appium@<verion_number>
+-> Command to start Appium: appium
+-> Command to get installation location: where appium
+Note: This command only gives location of the shortcut, not the actual installation location.
+Actual installation location is this: /usr/local/lib/node_modules/appium
+-> Command to uninstall Appium: npm uninstall -g appium
+
+
+Appium Main.js path :
+-------------------
+/opt/homebrew/lib/node_modules/appium/lib/main.js
+
+Install Appium Inspector
+========================
+-> Download and install from https://github.com/appium/appium-inspector/releases
+
+
+Install JAVA JDK (not the JRE!)
+================================
+-> Command to check if JAVA is already installed: java -version
+-> JAVA JDK download link: https://www.oracle.com/technetwork/java/javase/downloads/index.html
+Important note: Please use Java 8/11/15 for now. Don't use Java 16 or higher. The current Appium Java Client 8.x.x is not compatible with Java 16+. You may use Java 16+ once Appium Java client becomes compatible.
+
+
+Find the Mac using zsh or bash
+-------------------------------
+mohammedhaseeb@Mohammeds-MacBook-Pro ~ % echo $SHELL
+/bin/zsh
+
+What is /usr/libexec/java_home
+
+
+2.1 On Mac OS X 10.5 or later, we can use /usr/libexec/java_home to return the location of the default JDK.
+
+Terminal
+
+% /usr/libexec/java_home
+/Library/Java/JavaVirtualMachines/jdk-16.jdk/Contents/Home  
+
+2.2 Also, find all installed JDKs.
+
+Terminal
+
+% /usr/libexec/java_home -V
+Matching Java Virtual Machines (4):
+    16 (x86_64) "Oracle Corporation" - "OpenJDK 16-ea" /Library/Java/JavaVirtualMachines/jdk-16.jdk/Contents/Home
+    15.0.1 (x86_64) "UNDEFINED" - "OpenJDK 15.0.1" /usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home
+    14.0.2 (x86_64) "AdoptOpenJDK" - "AdoptOpenJDK 14" /Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home
+    1.8.0_275 (x86_64) "UNDEFINED" - "OpenJDK 8" /usr/local/Cellar/openjdk@8/1.8.0+275/libexec/openjdk.jdk/Contents/Home
+/Library/Java/JavaVirtualMachines/jdk-16.jdk/Contents/Home  
+
+2.3 Also, run a specified JDK command.
+
+Terminal
+
+% /usr/libexec/java_home -v1.8
+
+/usr/local/Cellar/openjdk@8/1.8.0+275/libexec/openjdk.jdk/Contents/Home  
+
+
+Set JAVA_HOME environment variable
+==================================
+On macOS 10.15 Catalina and later, default shell is zsh: 
+--------------------------------------------------------
+-> Navigate to home directory: cd ~/
+-> Open zshrc file: open -e .zshrc
+-> Create zshrc file: touch .zshrc
+-> Add below entries:
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="${JAVA_HOME}/bin:${PATH}"
+-> source .zshrc
+-> echo $JAVA_HOME
+-> echo $PATH
+Follow this article: https://mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/
