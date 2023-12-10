@@ -1,0 +1,13 @@
+Important update:
+
+Appium 2.x no longer uses the JSON Wire protocol. This is completely replaced by the W3C WebDriver protocol.
+
+The W3C WebDriver protocol is also based on the same client server architecture as explained in this lecture.
+
+W3C stands for World Wide Web Consortium, which is an international community that develops the standard for the Web. All major browsers, like Chrome, Firefox, etc. follow this standard, and now Selenium WebDriver 4.x has also switched to it completely. 
+
+In the past, Selenium (3.x) supported both the JSON Wire protocol and the W3C, but with Selenium 4.x, the JSON Wire protocol has been completely removed. Since Appium is based on the WebDriver, it also supported both protocols in Appium 1.x, but from Appium 2.x on, it has also switched to W3C completely. 
+
+The course has been completely revamped to support this architectural change.
+ 
+More about W3C WebDriver protocol here: https://www.w3.org/TR/webdriver/
