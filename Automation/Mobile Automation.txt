@@ -1,0 +1,28 @@
+Mobile Automation
+
+
+
+Plan/ Strategies for Mobile App Testing:
+
+https://www.browserstack.com/guide/mobile-app-testing-strategies#toc3
+
+https://geteasyqa.com/qa/mobile-apps-testing/
+
+https://qatestlab.com/resources/knowledge-center/test-plan-for-mobile-apps/
+
+
+https://testlio.com/blog/9-step-mobile-app-testing-strategy-checklist/
+
+https://www.testbytes.net/blog/mobile-app-testing-strategies/
+
+https://www.qamadness.com/how-to-write-a-good-mobile-app-testing-strategy-in-2021/
+
+
+
+
+
+What’s the difference between a mobile app test plan and a test strategy? Test strategy and plan are often used together and also interchangeably. But they are not the same. There are subtle differences between a mobile testing plan and mobile testing strategy. Let us look at some of these differences below:
+
+
+
+#Amway-automation
