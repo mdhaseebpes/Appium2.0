@@ -1,0 +1,63 @@
+Certainly! Confluence is a collaborative platform, and setting up a space for Mobile Automation regression tracking can be highly beneficial. Below is a template for a Confluence page that you can use as a starting point. Feel free to customize it based on your team's specific needs.
+
+---
+
+# Mobile Automation Regression Tracking
+
+## Overview
+
+Welcome to the Mobile Automation Regression Tracking space! This page is designed to provide a comprehensive view of our Android and iOS mobile automation regression testing. We will track regression results and percentage improvement on a weekly basis to ensure the quality and stability of our mobile applications.
+
+## Table of Contents
+
+1. [**Introduction**](#introduction)
+2. [**Regression Test Suites**](#regression-test-suites)
+3. [**Weekly Regression Results**](#weekly-regression-results)
+4. [**Percentage Improvement**](#percentage-improvement)
+5. [**Test Environment**](#test-environment)
+6. [**Automation Framework**](#automation-framework)
+7. [**How to Contribute**](#how-to-contribute)
+8. [**Changelog**](#changelog)
+
+---
+
+### Introduction
+
+Briefly explain the purpose of the Mobile Automation Regression Tracking, its importance, and the goals it aims to achieve.
+
+### Regression Test Suites
+
+List the test suites that are part of the regression testing for both Android and iOS platforms. Include details such as test case coverage, priority, and frequency of execution.
+
+### Weekly Regression Results
+
+Create a table to document the weekly regression results. Include columns for test suite name, total test cases, passed, failed, and any additional relevant metrics. Update this table at the end of each week.
+
+| Week Ending | Android Total Tests | Android Passed | Android Failed | iOS Total Tests | iOS Passed | iOS Failed |
+|-------------|---------------------|-----------------|-----------------|-----------------|-------------|-------------|
+| 2024-02-01  | 150                 | 145             | 5               | 140             | 138         | 2           |
+| 2024-02-08  | ...                 | ...             | ...             | ...             | ...         | ...         |
+
+### Percentage Improvement
+
+Track the percentage improvement in test case pass rates on a weekly basis. Calculate and visualize the improvement using charts or graphs.
+
+### Test Environment
+
+Provide information about the test environment, including the devices, emulators, and operating system versions used for regression testing.
+
+### Automation Framework
+
+Briefly describe the automation framework used for mobile automation regression testing. Include any relevant links or documentation for team members.
+
+### How to Contribute
+
+Explain how team members can contribute to the Mobile Automation Regression Tracking. Include guidelines for updating results, adding new test cases, and reporting issues.
+
+### Changelog
+
+Keep a changelog to document any updates or changes made to the Mobile Automation Regression Tracking space.
+
+---
+
+Feel free to customize this template based on your team's preferences and requirements.
