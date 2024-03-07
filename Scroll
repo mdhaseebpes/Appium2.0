@@ -1,0 +1,48 @@
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
+import java.util.concurrent.TimeUnit;
+
+public class MobileScroll {
+
+    public static void performSmallScroll(AppiumDriver driver, String direction, double percent) throws Exception {
+        if (!direction.equalsIgnoreCase("down") && !direction.equalsIgnoreCase("up")) {
+            throw new IllegalArgumentException("Invalid scroll direction: " + direction + ". Valid options are 'down' and 'up'.");
+        }
+
+        String platformName = driver.getPlatformName().toLowerCase();
+
+        if (platformName.equals("android")) {
+            // Use mobile:scrollGesture for Android
+            HashMap<String, Double> scrollObject = new HashMap<>();
+            scrollObject.put("direction", direction.equalsIgnoreCase("down") ? 1.0 : -1.0); // 1.0 for down, -1.0 for up
+            scrollObject.put("percent", percent);
+            driver.executeScript("mobile:scrollGesture", scrollObject);
+        } else if (platformName.equals("ios")) {
+            // Use mobile:scroll for iOS
+            HashMap<String, String> scrollObject = new HashMap<>();
+            scrollObject.put("direction", direction);
+            driver.executeScript("mobile:scroll", scrollObject);
+        } else {
+            throw new Exception("Unsupported platform: " + platformName);
+        }
+
+        // Optional: Add a wait to allow content to load after scrolling (adjust timeout as needed)
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+    }
+
+    public static void main(String[] args) throws Exception {
+        // Replace with your Appium driver initialization code
+        AppiumDriver driver = null;
+
+        // Example usage: Scroll down 25% of the screen
+        performSmallScroll(driver, "down", 0.25);
+
+        // Or, scroll up 50% of the screen
+        performSmallScroll(driver, "up", 0.5);
+
+        // ... (rest of your test code)
+
+        // Quit the driver at the end
+        driver.quit();
+    }
+}
